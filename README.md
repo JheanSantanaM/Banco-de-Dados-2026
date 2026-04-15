@@ -11,5 +11,5 @@ escola lógico:https://app.brmodeloweb.com/#!/publicview/69d6b806de33eeb5ddb59ac
 filmes conceitual: https://app.brmodeloweb.com/#!/publicview/69d6ae5ade33eeb5ddb59401
 filmes lógico: https://app.brmodeloweb.com/#!/publicview/69d6b88dde33eeb5ddb59b24
 
-Clinica veterinária conceitual:
-Clinica veterinária lógico: 
+Clinica veterinária conceitual:https://app.brmodeloweb.com/#!/publicview/69d6adf6de33eeb5ddb593e7
+Clinica veterinária lógico:https://app.brmodeloweb.com/#!/publicview/69deeb04e33b4dc332f920c0
