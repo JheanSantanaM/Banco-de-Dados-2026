@@ -3,6 +3,7 @@ Este é um repositório destinado ao meu aprendizado em banco de dados nas aulas
 
 ##Lista de Exercícios de modelagem no Banco de Dados
 
+imobiliaria:https://app.brmodeloweb.com/#!/publicview/69dee894e33b4dc332f91ee4
 
 escola conceitual:https://app.brmodeloweb.com/#!/publicview/69d6b7d9de33eeb5ddb59a7a
 escola lógico:https://app.brmodeloweb.com/#!/publicview/69d6b806de33eeb5ddb59ac3
