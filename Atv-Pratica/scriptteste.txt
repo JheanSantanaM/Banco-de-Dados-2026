@@ -1,0 +1,62 @@
+Microsoft Windows [versão 10.0.19043.1620]
+(c) Microsoft Corporation. Todos os direitos reservados.
+
+C:\Users\LAB4>cd C:\xampp\mysql\bin
+
+C:\xampp\mysql\bin>mysql -u root
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 54
+Server version: 10.4.22-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> use produtos;
+Database changed
+MariaDB [produtos]> select * from produtos;
++-----------+------------------+-------+------+------------+-------+-------+-----------------+------------+
+| idproduto | produto          | preco | qtde | datacad    | ativo | idcat | observacao      | marca      |
++-----------+------------------+-------+------+------------+-------+-------+-----------------+------------+
+|         1 | Acém Peça        | 39.99 |   50 | 2026-05-13 | ☺     |     3 | Sem gordura     |            |
+|         2 | Milho            |  2.37 |   10 | 2026-10-01 |       |     1 |                 |            |
+|         5 | Patinho          | 49.99 |   30 | 2026-07-23 | ☺     |     1 | com gordura     | friboi     |
+|         6 | Alcatra          | 35.99 |   20 | 2026-08-30 | ☺     |     3 | com gordura     | friboi     |
+|         7 | Contra filé      | 29.99 |   33 | 2026-07-29 | ☺     |     3 | com gordura     | friboi     |
+|         8 | Detergente       |  3.99 |   50 | 2027-05-12 | ☺     |     4 | Não contaminado | Ypê        |
+|         9 | Molho Tomate     |  2.49 |   73 | 2026-12-27 | ☺     |     5 | 100% Tomate     | Fugini     |
+|        10 | Ervilha          |  5.99 |   80 | 2026-09-11 | ☺     |     1 | 170g            | Quero      |
+|        11 | Sabão em pó      | 13.29 |   40 | 2027-08-17 | ☺     |     4 | Use em roupa    | OMO        |
+|        12 | Leite            |  4.59 |   60 | 2027-01-11 | ☺     |     2 | 1 Litro         | Parmalat   |
+|        13 | Leite            |  3.99 |   50 | 2027-01-11 | ☺     |     2 | 1 Litro         | Italac     |
+|        14 | Leite Condensado |  6.49 |   30 | 2027-03-15 | ☺     |     2 | Desnatado       | Moça       |
+|        15 | Queijo           | 13.49 |   20 | 2027-04-20 | ☺     |     2 |                 | Fusqueijão |
+|        16 | Requeijão        |  7.49 |   40 | 0000-00-00 | ☺     |     2 | Cremoso         | Vigor      |
++-----------+------------------+-------+------+------------+-------+-------+-----------------+------------+
+14 rows in set (0.001 sec)
+
+MariaDB [produtos]> select * from categorias;
+ERROR 1146 (42S02): Table 'produtos.categorias' doesn't exist
+MariaDB [produtos]> select * from categoria;
++-------------+------------+
+| idcategoria | categoria  |
++-------------+------------+
+|           1 | Enlatados  |
+|           2 | Laticínios |
+|           3 | Açougue    |
+|           4 | Limpeza    |
+|           5 | molhos     |
++-------------+------------+
+5 rows in set (0.000 sec)
+
+MariaDB [produtos]> INSERT INTO produtos (produto, preco, qtde, datacad, ativo, idcat, observacao, marca) VALUES
+    -> ('Molho barbecue', 9.99, 0, '2027-04-20',0,'2', '','KiSabor');
+Query OK, 1 row affected (0.003 sec)
+
+MariaDB [produtos]> INSERT INTO categorias (categoria) VALUES ('Roupas');
+ERROR 1146 (42S02): Table 'produtos.categorias' doesn't exist
+MariaDB [produtos]> INSERT INTO categoria (categoria) VALUES ('Roupas');
+Query OK, 1 row affected (0.003 sec)
+
+MariaDB [produtos]>
+
