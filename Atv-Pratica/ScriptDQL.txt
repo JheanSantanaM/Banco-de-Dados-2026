@@ -1,0 +1,283 @@
+Microsoft Windows [versão 6.3.9600]
+(c) 2013 Microsoft Corporation. Todos os direitos reservados.
+
+C:\Users\ETEC>cd C:\xampp\mysql\bin
+
+C:\xampp\mysql\bin>mysql -u root
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 52
+Server version: 10.4.24-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> use produtos;
+Database changed
+MariaDB [produtos]> select * from produtos;
++-----------+------------------+-------+------+------------+-------+-------+----
+-------------+------------+
+| idproduto | produto          | preco | qtde | datacad    | ativo | idcat | obs
+ervacao      | marca      |
++-----------+------------------+-------+------+------------+-------+-------+----
+-------------+------------+
+|         1 | Acém Peça        | 39.99 |   50 | 2026-05-13 | ?     |     3 | Sem
+ gordura     |            |
+|         2 | Milho            |  2.37 |   10 | 2026-10-01 |       |     1 |
+             |            |
+|         5 | Patinho          | 49.99 |   30 | 2026-07-23 | ?     |     1 | com
+ gordura     | friboi     |
+|         6 | Alcatra          | 35.99 |   20 | 2026-08-30 | ?     |     3 | com
+ gordura     | friboi     |
+|         7 | Contra filé      | 29.99 |   33 | 2026-07-29 | ?     |     3 | com
+ gordura     | friboi     |
+|         8 | Detergente       |  3.99 |   50 | 2027-05-12 | ?     |     4 | Não
+ contaminado | Ypê        |
+|         9 | Molho Tomate     |  2.49 |   73 | 2026-12-27 | ?     |     5 | 100
+% Tomate     | Fugini     |
+|        10 | Ervilha          |  5.99 |   80 | 2026-09-11 | ?     |     1 | 170
+g            | Quero      |
+|        11 | Sabão em pó      | 13.29 |   40 | 2027-08-17 | ?     |     4 | Use
+ em roupa    | OMO        |
+|        12 | Leite            |  4.59 |   60 | 2027-01-11 | ?     |     2 | 1 L
+itro         | Parmalat   |
+|        13 | Leite            |  3.99 |   50 | 2027-01-11 | ?     |     2 | 1 L
+itro         | Italac     |
+|        14 | Leite Condensado |  6.49 |   30 | 2027-03-15 | ?     |     2 | Des
+natado       | Moça       |
+|        15 | Queijo           | 13.49 |   20 | 2027-04-20 | ?     |     2 |
+             | Fusqueijão |
+|        16 | Requeijão        |  7.49 |   40 | 0000-00-00 | ?     |     2 | Cre
+moso         | Vigor      |
+|        17 | Molho barbecue   |  9.99 |    0 | 2027-04-20 |       |     2 |
+             | KiSabor    |
++-----------+------------------+-------+------+------------+-------+-------+----
+-------------+------------+
+15 rows in set (0.000 sec)
+
+MariaDB [produtos]> SELECT produto, preco FROM produtos;
++------------------+-------+
+| produto          | preco |
++------------------+-------+
+| Acém Peça        | 39.99 |
+| Milho            |  2.37 |
+| Patinho          | 49.99 |
+| Alcatra          | 35.99 |
+| Contra filé      | 29.99 |
+| Detergente       |  3.99 |
+| Molho Tomate     |  2.49 |
+| Ervilha          |  5.99 |
+| Sabão em pó      | 13.29 |
+| Leite            |  4.59 |
+| Leite            |  3.99 |
+| Leite Condensado |  6.49 |
+| Queijo           | 13.49 |
+| Requeijão        |  7.49 |
+| Molho barbecue   |  9.99 |
++------------------+-------+
+15 rows in set (0.001 sec)
+
+MariaDB [produtos]> SELECT * FROM produtos WHERE marca = 'KiSabor';
++-----------+----------------+-------+------+------------+-------+-------+------
+------+---------+
+| idproduto | produto        | preco | qtde | datacad    | ativo | idcat | obser
+vacao | marca   |
++-----------+----------------+-------+------+------------+-------+-------+------
+------+---------+
+|        17 | Molho barbecue |  9.99 |    0 | 2027-04-20 |       |     2 |
+      | KiSabor |
++-----------+----------------+-------+------+------------+-------+-------+------
+------+---------+
+1 row in set (0.001 sec)
+
+MariaDB [produtos]> select * from produtos where preco > 20;
++-----------+-------------+-------+------+------------+-------+-------+---------
+----+--------+
+| idproduto | produto     | preco | qtde | datacad    | ativo | idcat | observac
+ao  | marca  |
++-----------+-------------+-------+------+------------+-------+-------+---------
+----+--------+
+|         1 | Acém Peça   | 39.99 |   50 | 2026-05-13 | ?     |     3 | Sem gord
+ura |        |
+|         5 | Patinho     | 49.99 |   30 | 2026-07-23 | ?     |     1 | com gord
+ura | friboi |
+|         6 | Alcatra     | 35.99 |   20 | 2026-08-30 | ?     |     3 | com gord
+ura | friboi |
+|         7 | Contra filé | 29.99 |   33 | 2026-07-29 | ?     |     3 | com gord
+ura | friboi |
++-----------+-------------+-------+------+------------+-------+-------+---------
+----+--------+
+4 rows in set (0.001 sec)
+
+MariaDB [produtos]> select * from produtos where preco <= 20;
++-----------+------------------+-------+------+------------+-------+-------+----
+-------------+------------+
+| idproduto | produto          | preco | qtde | datacad    | ativo | idcat | obs
+ervacao      | marca      |
++-----------+------------------+-------+------+------------+-------+-------+----
+-------------+------------+
+|         2 | Milho            |  2.37 |   10 | 2026-10-01 |       |     1 |
+             |            |
+|         8 | Detergente       |  3.99 |   50 | 2027-05-12 | ?     |     4 | Não
+ contaminado | Ypê        |
+|         9 | Molho Tomate     |  2.49 |   73 | 2026-12-27 | ?     |     5 | 100
+% Tomate     | Fugini     |
+|        10 | Ervilha          |  5.99 |   80 | 2026-09-11 | ?     |     1 | 170
+g            | Quero      |
+|        11 | Sabão em pó      | 13.29 |   40 | 2027-08-17 | ?     |     4 | Use
+ em roupa    | OMO        |
+|        12 | Leite            |  4.59 |   60 | 2027-01-11 | ?     |     2 | 1 L
+itro         | Parmalat   |
+|        13 | Leite            |  3.99 |   50 | 2027-01-11 | ?     |     2 | 1 L
+itro         | Italac     |
+|        14 | Leite Condensado |  6.49 |   30 | 2027-03-15 | ?     |     2 | Des
+natado       | Moça       |
+|        15 | Queijo           | 13.49 |   20 | 2027-04-20 | ?     |     2 |
+             | Fusqueijão |
+|        16 | Requeijão        |  7.49 |   40 | 0000-00-00 | ?     |     2 | Cre
+moso         | Vigor      |
+|        17 | Molho barbecue   |  9.99 |    0 | 2027-04-20 |       |     2 |
+             | KiSabor    |
++-----------+------------------+-------+------+------------+-------+-------+----
+-------------+------------+
+11 rows in set (0.000 sec)
+
+MariaDB [produtos]> select nome, preco from produtos order by preco asc limit 5;
+
+ERROR 1054 (42S22): Unknown column 'nome' in 'field list'
+MariaDB [produtos]> select produto, preco from produtos order by preco asc limit
+ 5;
++--------------+-------+
+| produto      | preco |
++--------------+-------+
+| Milho        |  2.37 |
+| Molho Tomate |  2.49 |
+| Leite        |  3.99 |
+| Detergente   |  3.99 |
+| Leite        |  4.59 |
++--------------+-------+
+5 rows in set (0.000 sec)
+
+MariaDB [produtos]> select produto, preco from produtos order by preco desc limi
+t 5;
++-------------+-------+
+| produto     | preco |
++-------------+-------+
+| Patinho     | 49.99 |
+| Acém Peça   | 39.99 |
+| Alcatra     | 35.99 |
+| Contra filé | 29.99 |
+| Queijo      | 13.49 |
++-------------+-------+
+5 rows in set (0.000 sec)
+
+MariaDB [produtos]> select count (*) as total_produtos from produtos;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that
+corresponds to your MariaDB server version for the right syntax to use near '*)
+as total_produtos from produtos' at line 1
+MariaDB [produtos]> SELECT COUNT (*) AS total_produtos FROM produtos;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that
+corresponds to your MariaDB server version for the right syntax to use near '*)
+AS total_produtos FROM produtos' at line 1
+MariaDB [produtos]> select avg(preco) as preco_medio from produtos;
++-------------+
+| preco_medio |
++-------------+
+|   15.342000 |
++-------------+
+1 row in set (0.000 sec)
+
+MariaDB [produtos]> SELECT COUNT(*) AS total_produtos FROM produtos;
++----------------+
+| total_produtos |
++----------------+
+|             15 |
++----------------+
+1 row in set (0.000 sec)
+
+MariaDB [produtos]> select produto, qtde from produtos order by qtde desc limit
+1;
++---------+------+
+| produto | qtde |
++---------+------+
+| Ervilha |   80 |
++---------+------+
+1 row in set (0.000 sec)
+
+MariaDB [produtos]> select p.produtos, c.categoria from produtos p join categori
+as c on p.id_categoria = c.id_categoria;
+ERROR 1146 (42S02): Table 'produtos.categorias' doesn't exist
+MariaDB [produtos]> select p.produtos, c.categoria from produtos p join categori
+as c on p.idcategoria = c.idcategoria;
+ERROR 1146 (42S02): Table 'produtos.categorias' doesn't exist
+MariaDB [produtos]> select p.produtos, c.categoria from produtos p join categori
+as c on p.produtos = c.idcategoria;
+ERROR 1146 (42S02): Table 'produtos.categorias' doesn't exist
+MariaDB [produtos]> select p.produtos, c.categoria from produtos p join categori
+as c on p.produtos = c.categoria;
+ERROR 1146 (42S02): Table 'produtos.categorias' doesn't exist
+MariaDB [produtos]> select p.produtos, c.categoria from produtos p join categori
+as c on p.idcategoria = c.categoria;
+ERROR 1146 (42S02): Table 'produtos.categorias' doesn't exist
+MariaDB [produtos]> select p.produtos, c.categoria from produtos p join categori
+as c on p.idcat = c.categoria;
+ERROR 1146 (42S02): Table 'produtos.categorias' doesn't exist
+MariaDB [produtos]> select p.produto, c.categoria from produtos p join categoria
+s c on p.idcat = c.categoria;
+ERROR 1146 (42S02): Table 'produtos.categorias' doesn't exist
+MariaDB [produtos]> select p.produto, c.categoria from produtos p join categoria
+ c on p.idcat = c.categoria;
+Empty set, 6 warnings (0.000 sec)
+
+MariaDB [produtos]> select p.produto, c.categoria from produtos p join categoria
+ c on p.idcat = c.categoria;
+Empty set, 6 warnings (0.000 sec)
+
+MariaDB [produtos]> SELECT p.produto, c.categoria FROM produtos p JOIN categoria
+s c ON p.idcat = c.categoria;
+ERROR 1146 (42S02): Table 'produtos.categorias' doesn't exist
+MariaDB [produtos]> SELECT p.produto, c.categoria FROM produtos p JOIN categoria
+ c ON p.idcat = c.categoria;
+Empty set, 6 warnings (0.000 sec)
+
+MariaDB [produtos]> SELECT p.produto, c.categoria FROM produtos p JOIN categoria
+ c ON p.idcat = c.idcategoria;
++------------------+------------+
+| produto          | categoria  |
++------------------+------------+
+| Milho            | Enlatados  |
+| Patinho          | Enlatados  |
+| Ervilha          | Enlatados  |
+| Leite            | Laticínios |
+| Leite            | Laticínios |
+| Leite Condensado | Laticínios |
+| Queijo           | Laticínios |
+| Requeijão        | Laticínios |
+| Molho barbecue   | Laticínios |
+| Acém Peça        | Açougue    |
+| Alcatra          | Açougue    |
+| Contra filé      | Açougue    |
+| Detergente       | Limpeza    |
+| Sabão em pó      | Limpeza    |
+| Molho Tomate     | molhos     |
++------------------+------------+
+15 rows in set (0.000 sec)
+
+MariaDB [produtos]> SELECT c.produto, p.marca, p.preco FROM produtos p JOIN cate
+goria c ON p.idcat = c.idcategoria WHERE c.categoria = 'laticínios';
+ERROR 1054 (42S22): Unknown column 'c.produto' in 'field list'
+MariaDB [produtos]> SELECT p.produto, p.marca, p.preco FROM produtos p JOIN cate
+goria c ON p.idcat = c.idcategoria WHERE c.categoria = 'laticínios';
++------------------+------------+-------+
+| produto          | marca      | preco |
++------------------+------------+-------+
+| Leite            | Parmalat   |  4.59 |
+| Leite            | Italac     |  3.99 |
+| Leite Condensado | Moça       |  6.49 |
+| Queijo           | Fusqueijão | 13.49 |
+| Requeijão        | Vigor      |  7.49 |
+| Molho barbecue   | KiSabor    |  9.99 |
++------------------+------------+-------+
+6 rows in set (0.001 sec)
+
+MariaDB [produtos]>
